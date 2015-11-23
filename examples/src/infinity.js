@@ -1,6 +1,6 @@
 
 const infinity = function* () {
-    let i = 0
+    let i = 1
     let infinity = true
 
     while(infinity) {
