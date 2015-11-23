@@ -3,8 +3,9 @@
 import debug from 'debug'
 
 // lib
-import * as Iterated from './linked_list.iterated'
 import * as Iterable from './linked_list.iterable'
+import * as Iterated from './linked_list.iterated'
+import infinity from './infinity'
 import map from './map'
 
 const log = debug('bwdid:main')
@@ -72,5 +73,17 @@ for(let x of [1, 2, 3]) {
 const mapSource = Iterated.makeLinkedListIterator(toBeMapped)
 
 const doubled = doubler(mapSource)
+const otherDoubled = doubler([100, 200, 300])
 
-log('doubled', [...doubled])
+log('iterator doubled', [...doubled])
+log('iterable doubled', [...otherDoubled])
+
+const toDoubleInfinity = infinity()
+const infinityTwiceAsLarge = doubler(toDoubleInfinity)
+
+log('\n')
+
+log('Doubling infinity')
+log('infinity doubled', infinityTwiceAsLarge.next())
+log('infinity doubled', infinityTwiceAsLarge.next())
+log('infinity doubled', infinityTwiceAsLarge.next())

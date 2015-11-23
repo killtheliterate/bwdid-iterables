@@ -1,7 +1,14 @@
 
 export default function map(cb) {
-    return function* (iter) {
+    return function* (source) {
         let bail = false
+        let iter
+
+        if(source[Symbol.iterator]) {
+            iter = source[Symbol.iterator]()
+        } else {
+            iter = source
+        }
 
         while (!bail) {
             let index = iter.next()
