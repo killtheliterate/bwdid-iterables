@@ -1,5 +1,4 @@
-
-export default function map(cb) {
+export default function reduce(cb) {
 
     return function(acc) {
 

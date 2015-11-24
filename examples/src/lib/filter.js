@@ -1,5 +1,4 @@
-
-export default function map(cb) {
+export default function filter(cb) {
     return function* (source) {
         let bail = false
         let iter
@@ -16,7 +15,9 @@ export default function map(cb) {
             if (index.done) {
                 bail = true
             } else {
-                yield cb(index.value)
+                if (cb(index.value)) {
+                    yield index.value
+                }
             }
         }
     }

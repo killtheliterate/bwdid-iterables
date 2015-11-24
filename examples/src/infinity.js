@@ -1,32 +1,25 @@
-export function* allsGen() {
-    let num = 1
-    let infinity = true
 
-    while(infinity) {
-        yield num++
-    }
-}
+// vendor
+import debug from 'debug'
 
-export function* evensGen() {
-    let num = 0
-    let infinity = true
+// lib
+import * as Infinity from './lib/infinity'
 
-    while(infinity) {
-        yield num = num + 2
-    }
-}
+const log = debug('bwdid:infinity')
 
-export function* zipGen(first, second) {
-    let infinity = true
+// Infinity
+// ---------------------------------------------------------------------------
+export default function() {
+    log('Infinity')
+    log('---------------------------------------------------------------------')
 
-    while(infinity) {
-        const firstYield = first.next()
-        const secondYield = second.next()
+    const alls = Infinity.allsGen()
+    const evens = Infinity.evensGen()
 
-        if (firstYield.done === true && secondYield.done === true) {
-            infinity = false
-        } else {
-            yield {first: firstYield.value, second: secondYield.value}
-        }
-    }
+    const allsAndEvens = Infinity.zipGen(alls, evens)
+
+    log('infinity', allsAndEvens.next())
+    log('infinity', allsAndEvens.next())
+    log('infinity', allsAndEvens.next())
+    log('\n')
 }
