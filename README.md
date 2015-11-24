@@ -12,4 +12,9 @@ them individually or all at once... just uncomment the one you are interested
 in.
 
 Examples:
-*
+* Iterator: http://bit.ly/1I8TKzc
+* Iterable: http://bit.ly/1T0WhvJ
+* Infinity: http://bit.ly/1PXumgX
+* Map: http://bit.ly/21ewFkR
+* Filter: http://bit.ly/1LxWRLZ
+* Reduce: http://bit.ly/1lHYuSo
