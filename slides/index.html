@@ -407,6 +407,9 @@
             <h1>Generators</h1>
 
 <pre><code>
+  // pushing a value with next() will become the result of the last
+  // yield. like this:
+
   const maker = function* () {
     let first = yield
     let second = yield first
