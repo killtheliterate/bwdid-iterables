@@ -3,12 +3,12 @@
 import debug from 'debug'
 
 // lib
+import * as Infinity from './infinity'
 import * as Iterable from './linked_list.iterable'
 import * as Iterated from './linked_list.iterated'
-import filter from './combo.filter'
-import infinity from './infinity'
-import map from './combo.map'
-import reduce from './combo.reduce'
+import filter from './app.filter'
+import map from './app.map'
+import reduce from './app.reduce'
 
 const log = debug('bwdid:main')
 
@@ -57,7 +57,22 @@ for(let el of iterableList) {
 
 log('\n')
 
-// Combinators
+// Infinity
+// ---------------------------------------------------------------------------
+log('Infinity')
+log('---------------------------------------------------------------------------')
+
+const alls = Infinity.allsGen()
+const evens = Infinity.evensGen()
+
+const allsAndEvens = Infinity.zipGen(alls, evens)
+
+log('infinity', allsAndEvens.next())
+log('infinity', allsAndEvens.next())
+log('infinity', allsAndEvens.next())
+log('\n')
+
+// Applicatives
 // ---------------------------------------------------------------------------
 log('map/filter/reduce')
 log('---------------------------------------------------------------------------')
@@ -76,7 +91,7 @@ const mapSource = Iterated.makeLinkedListIterator(toBeMapped)
 const doubled = doubler(mapSource)
 const otherDoubled = doubler([100, 200, 300])
 
-const toDoubleInfinity = infinity()
+const toDoubleInfinity = Infinity.allsGen()
 const infinityTwiceAsLarge = doubler(toDoubleInfinity)
 
 log('iterator mapped', [...doubled])
@@ -98,7 +113,7 @@ const filterSource = Iterated.makeLinkedListIterator(toBeFiltered)
 const filtered = isEven(filterSource)
 const otherFiltered = isEven([101, 202, 303, 404])
 
-const toFilterInfinity = infinity()
+const toFilterInfinity = Infinity.allsGen()
 const infiniteEvens = isEven(toFilterInfinity)
 
 log('iterator filtered', [...filtered])
@@ -122,7 +137,7 @@ const summed = sum(reduceSource)
 
 const intermediate = [...summed]
 
-const toReduceInfinity = infinity()
+const toReduceInfinity = Infinity.allsGen()
 const infiniteReduced = sum(toReduceInfinity)
 
 log('iterator reduced', intermediate[intermediate.length - 1])
