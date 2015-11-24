@@ -1,5 +1,5 @@
 export default function filter(cb) {
-    return function* (source) {
+    return function * (source) {
         let bail = false
         let iter
 

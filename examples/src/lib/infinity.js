@@ -1,4 +1,4 @@
-export function* allsGen() {
+export function * allsGen() {
     let num = 1
     let infinity = true
 
@@ -7,7 +7,7 @@ export function* allsGen() {
     }
 }
 
-export function* evensGen() {
+export function * evensGen() {
     let num = 0
     let infinity = true
 
@@ -16,7 +16,7 @@ export function* evensGen() {
     }
 }
 
-export function* zipGen(first, second) {
+export function * zipGen(first, second) {
     let infinity = true
 
     while(infinity) {

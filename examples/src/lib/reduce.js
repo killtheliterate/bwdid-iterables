@@ -2,7 +2,7 @@ export default function reduce(cb) {
 
     return function(acc) {
 
-        return function* (source) {
+        return function * (source) {
             let bail = false
             let iter
             let loc = acc

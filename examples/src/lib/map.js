@@ -1,5 +1,5 @@
 export default function map(cb) {
-    return function* (source) {
+    return function * (source) {
         let bail = false
         let iter
 

@@ -9,8 +9,8 @@ import reduce from './reduce'
 // Uncomment the example you would like to run
 
 iterator()
-// iterable()
-// infinity()
-// map()
-// filter()
-// reduce()
+iterable()
+infinity()
+map()
+filter()
+reduce()
